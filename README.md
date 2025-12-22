@@ -13,6 +13,7 @@ This repository contains documentation and resources for learning and using the 
 - [Go Vet](#go-vet)
 - [Makefile](#makefile)
 - [The Go Compatibility Promise](#the-go-compatibility-promise)
+- [The Predeclared Types](#the-predeclared-types)
 
 ## Getting Started
 
@@ -178,3 +179,23 @@ In this Makefile, we have defined three targets: `build`, `clean`, and `run`. Th
 ## The Go Compatibility Promise
 
 The Go Compatibility Promise is a commitment made by the Go development team to ensure that programs written in Go will continue to work with future versions of the language. This promise guarantees that code written in a specific version of Go will remain compatible with all subsequent versions, as long as it adheres to the language's specifications and does not rely on undefined behavior.
+
+## The Predeclared Types
+
+Predeclared types are types that are found in other langauges like: booleans, intergers, floats, and strings.
+
+### Zero Value
+
+Go assigns a default zero value to any variable that is declared but not assigned a value. Having an explicit zero makes code more clearer. Each types has it's own zero value.
+
+### Literals
+
+A literal is an explicit number, character or string. They are integer literals which is a sequence if numbers, they are base 10 by default, ifferent prefixes are used to indicate other bases
+
+-  0b for binary (base 2)
+- 0o for octal (base 8)
+- 0x for hexadecimal (base 16)
+
+To make it easier to read longer integer literals, Go allows you to put underscores in the middle of your literal. The undeacores have no effect on the value of the number. Underscores should be used to improve readability
+
+A floating-point literal has a decimal point to indicate the fractional portion of the value. They can also have an exponent specified with the letter e and a positive or negative number (such as 6.03e23)
