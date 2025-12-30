@@ -14,6 +14,7 @@ This repository contains documentation and resources for learning and using the 
 - [Makefile](#makefile)
 - [The Go Compatibility Promise](#the-go-compatibility-promise)
 - [The Predeclared Types](#the-predeclared-types)
+- [Time Package](#time-package)
 
 ## Getting Started
 
@@ -196,6 +197,29 @@ A literal is an explicit number, character or string. They are integer literals 
 - 0o for octal (base 8)
 - 0x for hexadecimal (base 16)
 
-To make it easier to read longer integer literals, Go allows you to put underscores in the middle of your literal. The undeacores have no effect on the value of the number. Underscores should be used to improve readability
+To make it easier to read longer integer literals, Go allows you to put underscores in the middle of your literal. The underscores have no effect on the value of the number. Underscores should be used to improve readability
 
 A floating-point literal has a decimal point to indicate the fractional portion of the value. They can also have an exponent specified with the letter e and a positive or negative number (such as 6.03e23)
+
+## Time Package
+
+The `time` package in Go provides functionality for measuring and displaying time. It includes types and functions for working with dates, times, durations, and time zones.
+
+Here is a simple example of how to use the `time` package to get the current time and format it:
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    currentTime := time.Now()
+    formattedTime := currentTime.Format("2006-01-02 15:04:05")
+    fmt.Println("Current Time:", formattedTime)
+} 
+```
+
+This code imports the `time` package, gets the current time using `time.Now()`, formats it using the `Format` method, and prints it to the console. The layout string "2006-01-02 15:04:05" is a reference time used by Go to define the format.
