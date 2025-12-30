@@ -249,3 +249,22 @@ func main() {
 ```
 
 This code declares an array of integers with a size of 5, assigns values to each element, and prints the array to the console. When go checks the size of the array, it knows that it is exactly 5 elements long because that is how it was declared which is a quirk I have never seen before.
+
+### Slices
+
+A slice is a dynamically-sized, flexible view into the elements of an array. Slices are more commonly used in Go than arrays because they provide more functionality and flexibility. Here is an example of how to declare and use a slice in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    numbers := []int{10, 20, 30, 40, 50}
+    numbers = append(numbers, 60)
+
+    fmt.Println("Slice:", numbers)
+} 
+```
+
+This code declares a slice of integers, appends a new value to the slice using the `append` function, and prints the slice to the console. Slices can grow and shrink in size as needed, making them more versatile than arrays.
