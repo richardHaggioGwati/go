@@ -15,6 +15,7 @@ This repository contains documentation and resources for learning and using the 
 - [The Go Compatibility Promise](#the-go-compatibility-promise)
 - [The Predeclared Types](#the-predeclared-types)
 - [Time Package](#time-package)
+- [Arrays and Slices](#arrays-and-slices)
 
 ## Getting Started
 
@@ -223,3 +224,28 @@ func main() {
 ```
 
 This code imports the `time` package, gets the current time using `time.Now()`, formats it using the `Format` method, and prints it to the console. The layout string "2006-01-02 15:04:05" is a reference time used by Go to define the format.
+
+## Arrays and Slices
+
+### Arrays
+
+In Go, an array is a fixed-size collection of elements of the same type. The size of an array is determined at the time of declaration and cannot be changed later. Here is an example of how to declare and use an array in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var numbers [5]int
+    numbers[0] = 10
+    numbers[1] = 20
+    numbers[2] = 30
+    numbers[3] = 40
+    numbers[4] = 50
+
+    fmt.Println("Array:", numbers)
+} 
+```
+
+This code declares an array of integers with a size of 5, assigns values to each element, and prints the array to the console. When go checks the size of the array, it knows that it is exactly 5 elements long because that is how it was declared which is a quirk I have never seen before.
