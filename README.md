@@ -268,3 +268,25 @@ func main() {
 ```
 
 This code declares a slice of integers, appends a new value to the slice using the `append` function, and prints the slice to the console. Slices can grow and shrink in size as needed, making them more versatile than arrays.
+
+#### Slices Removing Elements Based on Index
+
+To remove an element from a slice based on its index, you can use the `append` function with slicing. Here's an example:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    courses := []string{"reactjs", "javascript", "html", "css", "vuejs"}
+    fmt.Println("Courses before removal:", courses)
+    var index = 3
+    courses = append(courses[:index], courses[index+1:]...)
+    fmt.Println("Courses removed by index...", courses)
+}
+```
+
+This code declares a slice of strings, removes an element at a specific index using slicing and `append`, and prints the resulting slice.
+
+Go is `index exclusive` when slicing, meaning the starting index is included, but the ending index is not.

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	fmt.Println("Slices in Go")
@@ -26,4 +29,28 @@ func main() {
 	// Length and Capacity
 	fmt.Println("Length of Some Veggies:", len(someVeggies))
 	fmt.Println("Capacity of Some Veggies:", cap(someVeggies))
+
+	// Creating a slice with make
+	highScores := make([]int, 3)
+
+	highScores[0] = 100
+	highScores[1] = 200
+	highScores[2] = 300
+	// highScores[3] = 400  This will cause a runtime error: index out of range
+
+	fmt.Println("High Scores:", highScores)
+
+	highScores = append(highScores, 400, 500, 600)
+	fmt.Println("High Scores after appending:", highScores)
+
+	sort.Ints(highScores)
+	fmt.Println("Sorted High Scores:", highScores)
+
+	// Removing an element from a slice
+
+	var courses = []string{"reactjs", "javascript", "html", "css", "vuejs"}
+	fmt.Println("Courses before removal:", courses)
+	var index = 3
+	courses = append(courses[:index], courses[index+1:]...)
+	fmt.Println("Courses removed by index...", courses)
 }
