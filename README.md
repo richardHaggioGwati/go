@@ -54,7 +54,7 @@ To create a new Go module, follow these steps:
 
    ```bash
     go mod init hello_world
-    ```
+   ```
 
 This command creates a `go.mod` file in your directory, which defines the module's path and its dependencies.
 
@@ -83,7 +83,7 @@ import "fmt"
 
 func main()  {
     fmt.Println("Hello, World!")
-} 
+}
 ```
 
 Save this code in a file named `hello.go` and run it using the following command:
@@ -220,7 +220,7 @@ func main() {
     currentTime := time.Now()
     formattedTime := currentTime.Format("2006-01-02 15:04:05")
     fmt.Println("Current Time:", formattedTime)
-} 
+}
 ```
 
 This code imports the `time` package, gets the current time using `time.Now()`, formats it using the `Format` method, and prints it to the console. The layout string "2006-01-02 15:04:05" is a reference time used by Go to define the format.
@@ -245,7 +245,7 @@ func main() {
     numbers[4] = 50
 
     fmt.Println("Array:", numbers)
-} 
+}
 ```
 
 This code declares an array of integers with a size of 5, assigns values to each element, and prints the array to the console. When go checks the size of the array, it knows that it is exactly 5 elements long because that is how it was declared which is a quirk I have never seen before.
@@ -264,7 +264,7 @@ func main() {
     numbers = append(numbers, 60)
 
     fmt.Println("Slice:", numbers)
-} 
+}
 ```
 
 This code declares a slice of integers, appends a new value to the slice using the `append` function, and prints the slice to the console. Slices can grow and shrink in size as needed, making them more versatile than arrays.
@@ -310,4 +310,42 @@ func main() {
 }
 ```
 
-This code declares a map where the keys are strings (student names) and the values are integers (grades). It assigns grades to students and prints the map to the console. Maps in Go are dynamic in size and can grow or shrink as needed.
+This code declares a map where the keys are strings (student names) and the values are integers (grades). It assigns grades to students and prints the map to the console. Maps in Go are dynamic in size and can grow or shrink as needed.`
+
+### Structs
+
+Structs in Go are composite data types that group together related fields. They allow you to create custom data types that can hold multiple values of different types. Structs are similar to classes in other programming languages, but they do not support inheritance. Here is an example of how to declare and use a struct in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Structs in Golang")
+
+// Creating a User struct instance
+    alice := User{
+        Name:   "Alice",
+        Email:  "alice@example.com",
+        Age:    30,
+        Status: true,
+        }
+
+    fmt.Printf("Alice's details are: %+v \n", alice)
+    fmt.Printf("Name is %v, and the age is %v.", alice.Name, alice.Age)
+
+}
+
+/*
+User struct represents a user with basic information.
+*/
+type User struct {
+    Name   string
+    Email  string
+    Age    int
+    Status bool
+}
+```
+
+This code defines a `User` struct with fields for name, email, age, and status. It creates an instance of the `User` struct, assigns values to its fields, and prints the details to the console.
