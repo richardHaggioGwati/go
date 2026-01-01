@@ -194,7 +194,7 @@ Go assigns a default zero value to any variable that is declared but not assigne
 
 A literal is an explicit number, character or string. They are integer literals which is a sequence if numbers, they are base 10 by default, ifferent prefixes are used to indicate other bases
 
--  0b for binary (base 2)
+- 0b for binary (base 2)
 - 0o for octal (base 8)
 - 0x for hexadecimal (base 16)
 
@@ -290,3 +290,24 @@ func main() {
 This code declares a slice of strings, removes an element at a specific index using slicing and `append`, and prints the resulting slice.
 
 Go is `index exclusive` when slicing, meaning the starting index is included, but the ending index is not.
+
+### Maps
+
+Maps in Go are unordered collections of key-value pairs. They provide a way to associate values with unique keys, allowing for efficient data retrieval based on those keys. Basically, maps are Go's version of dictionaries or hash tables found in other programming languages. Here is an example of how to declare and use a map in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    studentGrades := make(map[string]int)
+    studentGrades["Alice"] = 90
+    studentGrades["Bob"] = 85
+    studentGrades["Charlie"] = 95
+
+    fmt.Println("Student Grades:", studentGrades)
+}
+```
+
+This code declares a map where the keys are strings (student names) and the values are integers (grades). It assigns grades to students and prints the map to the console. Maps in Go are dynamic in size and can grow or shrink as needed.
