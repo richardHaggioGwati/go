@@ -15,7 +15,10 @@ This repository contains documentation and resources for learning and using the 
 - [The Go Compatibility Promise](#the-go-compatibility-promise)
 - [The Predeclared Types](#the-predeclared-types)
 - [Time Package](#time-package)
-- [Arrays and Slices](#arrays-and-slices)
+- [Arrays, Slices and Maps](#arrays-slices-and-maps)
+- [Structs](#structs)
+- [Functions](#functions)
+- [Defered Function Calls](#deferred-function-calls)
 
 ## Getting Started
 
@@ -380,3 +383,31 @@ func swap(a int, b int) (int, int) {
 
 This `swap` function takes two integers as parameters and returns them in swapped order. A dumb example but it shows how multiple return values work.
 
+## Deferred Function Calls
+
+In Go, the `defer` keyword is used to schedule a function call to be executed after the surrounding function completes. Deferred function calls are often used for cleanup tasks, such as closing files or releasing resources, ensuring that these tasks are performed regardless of how the function exits (whether normally or due to an error). Here is an example of how to use `defer` in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    defer fmt.Println("World")
+    defer fmt.Println("One")
+    defer fmt.Println("Two")
+    fmt.Println("Hello")
+    myDefer()
+}
+
+// Output:
+// Hello, 43210, Two, One, World
+
+func myDefer() {
+    for i := 0; i < 5; i++ {
+        defer fmt.Println(i)
+    }
+}
+```
+
+In this example, the `defer` statements schedule the printing of "World", "One", and "Two" to occur after the `main` function completes. The output will show "Hello" first, followed by the deferred prints in reverse order of their scheduling. The `myDefer` function demonstrates that deferred calls within a loop are also executed in LIFO (Last In, First Out) order.
