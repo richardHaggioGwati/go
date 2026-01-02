@@ -225,7 +225,7 @@ func main() {
 
 This code imports the `time` package, gets the current time using `time.Now()`, formats it using the `Format` method, and prints it to the console. The layout string "2006-01-02 15:04:05" is a reference time used by Go to define the format.
 
-## Arrays and Slices
+## Arrays, Slices and Maps
 
 ### Arrays
 
@@ -312,7 +312,7 @@ func main() {
 
 This code declares a map where the keys are strings (student names) and the values are integers (grades). It assigns grades to students and prints the map to the console. Maps in Go are dynamic in size and can grow or shrink as needed.`
 
-### Structs
+## Structs
 
 Structs in Go are composite data types that group together related fields. They allow you to create custom data types that can hold multiple values of different types. Structs are similar to classes in other programming languages, but they do not support inheritance. Here is an example of how to declare and use a struct in Go:
 
@@ -349,3 +349,34 @@ type User struct {
 ```
 
 This code defines a `User` struct with fields for name, email, age, and status. It creates an instance of the `User` struct, assigns values to its fields, and prints the details to the console.
+
+## Functions
+
+Functions in Go are the same as functions in other programming languages with a twist, in Go, functions are first-class citizens, meaning they can be assigned to variables, passed as arguments to other functions, and returned from functions. Functions also can not have other functions defined within them which is just weird especially coming from JavaScript, Kotlin, Python, and many other languages where nested functions are common. Here is an example of how to declare and use a function in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    result := add(10, 20)
+    fmt.Println("Sum:", result)
+}
+
+// add function takes two integers as parameters and returns their sum.
+func add(a int, b int) int {
+    return a + b
+}
+```
+
+As part of the function declaration, we specify the parameter types and the return type. In this example, the `add` function takes two integers as parameters and returns their sum as an integer. A fucntion can have multiple return values as well that have to be contained in parentheses.
+
+```go
+func swap(a int, b int) (int, int) {
+    return b, a
+}
+```
+
+This `swap` function takes two integers as parameters and returns them in swapped order. A dumb example but it shows how multiple return values work.
+
