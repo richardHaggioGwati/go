@@ -20,6 +20,7 @@ This repository contains documentation and resources for learning and using the 
 - [Functions](#functions)
 - [Defered Function Calls](#deferred-function-calls)
 - [Files](#files)
+- [Requests](#requests)
 
 ## Getting Started
 
@@ -444,3 +445,36 @@ func main() {
 ```
 
 This code creates a new file named `example.txt`, writes the string "Hello, World!" to it, and then closes the file. The `defer` statement ensures that the file is closed properly when the function exits.
+
+## Requests
+
+To make HTTP requests in Go, you can use the `net/http` package. This package provides functions for sending HTTP requests and handling responses. Here is an example of how to make a simple GET request in Go:
+
+```go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    response, err := http.Get("https://api.github.com")
+    if err != nil {
+        fmt.Println("Error making GET request:", err)
+        return
+    }
+    defer response.Body.Close()
+
+    body, err := ioutil.ReadAll(response.Body)
+    if err != nil {
+        fmt.Println("Error reading response body:", err)
+        return
+    }
+
+    fmt.Println("Response Body:", string(body))
+}
+```
+
+This code makes a GET request to the GitHub API, reads the response body, and prints it to the console. The `defer` statement ensures that the response body is closed properly after reading.
