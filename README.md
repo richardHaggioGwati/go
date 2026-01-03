@@ -19,6 +19,7 @@ This repository contains documentation and resources for learning and using the 
 - [Structs](#structs)
 - [Functions](#functions)
 - [Defered Function Calls](#deferred-function-calls)
+- [Files](#files)
 
 ## Getting Started
 
@@ -411,3 +412,35 @@ func myDefer() {
 ```
 
 In this example, the `defer` statements schedule the printing of "World", "One", and "Two" to occur after the `main` function completes. The output will show "Hello" first, followed by the deferred prints in reverse order of their scheduling. The `myDefer` function demonstrates that deferred calls within a loop are also executed in LIFO (Last In, First Out) order.
+
+## Files
+
+Go provides built-in support for file handling through the `os` and `io/ioutil` packages. You can use these packages to create, read, write, and manipulate files. Here is an example of how to create and write to a file in Go:
+
+```go
+package main
+
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    file, err := os.Create("example.txt")
+    if err != nil {
+        fmt.Println("Error creating file:", err)
+        return
+    }
+    defer file.Close()
+
+    _, err = file.WriteString("Hello, World!\n")
+    if err != nil {
+        fmt.Println("Error writing to file:", err)
+        return
+    }
+
+    fmt.Println("File created and written successfully.")
+}
+```
+
+This code creates a new file named `example.txt`, writes the string "Hello, World!" to it, and then closes the file. The `defer` statement ensures that the file is closed properly when the function exits.
